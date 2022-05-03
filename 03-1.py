@@ -1,5 +1,6 @@
 from utils import read_inputs
 
+
 inputs = read_inputs("inputs/03/1.txt")
 position = 0
 nbtree = 0
