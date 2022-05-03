@@ -1,6 +1,6 @@
 from utils import read_inputs
 
-inputs = read_inputs("inputs/02/1.txt")
+inputs = read_inputs("inputs/02.txt")
 
 right_pswd = 0
 
@@ -22,7 +22,7 @@ print(right_pswd)
 import re
 from utils import read_inputs
 
-inputs = read_inputs("inputs/02/1.txt")
+inputs = read_inputs("inputs/02.txt")
 
 split_caracters = [": ", " ", "-"]
 num_correct_passwords = 0

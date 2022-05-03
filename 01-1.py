@@ -1,6 +1,6 @@
 from utils import read_inputs
 
-inputs = read_inputs("inputs/01/1.txt")
+inputs = read_inputs("inputs/01.txt")
 
 inputs = {int(x) for x in inputs}
 for x in inputs:

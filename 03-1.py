@@ -1,7 +1,7 @@
 from utils import read_inputs
 
 
-inputs = read_inputs("inputs/03/1.txt")
+inputs = read_inputs("inputs/03.txt")
 position = 0
 nbtree = 0
 for i in range(1, len(inputs)):
@@ -16,7 +16,7 @@ print(nbtree)
 from utils import read_inputs
 
 
-inputs = read_inputs("inputs/03/1.txt")
+inputs = read_inputs("inputs/03.txt")
 x_position, x_steps = 0, 3
 tree_count = 0
 for line in inputs:

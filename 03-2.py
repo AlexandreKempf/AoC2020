@@ -3,7 +3,7 @@ from utils import read_inputs
 
 import numpy as np
 
-inputs = read_inputs("inputs/03/1.txt")
+inputs = read_inputs("inputs/03.txt")
 position = 0
 nbtree1 = np.zeros(4)
 slope = [1, 3, 5, 7]
@@ -35,7 +35,7 @@ print(result)
 from utils import read_inputs
 import numpy as np
 
-inputs = read_inputs("inputs/03/1.txt")
+inputs = read_inputs("inputs/03.txt")
 
 
 def count_trees(inputs, x_steps, y_steps):
