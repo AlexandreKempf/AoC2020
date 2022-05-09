@@ -1,5 +1,5 @@
 from utils import read_inputs
-inputs = read_inputs(""inputs/06.txt"")
+inputs = read_inputs("inputs/06.txt")
 
 def parse_form(inputs):
     form = [set()]
