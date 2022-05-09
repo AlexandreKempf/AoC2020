@@ -1,6 +1,6 @@
 from utils import read_inputs
 
-inputs = read_inputs("inputday5.txt")
+inputs = read_inputs("inputs/05.txt")
 
 def get_seat_id(seat_hash):
   seat_row = seat_hash[:7] # FBFBBFF

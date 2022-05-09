@@ -1,5 +1,5 @@
 from utils import read_inputs
-inputs = read_inputs("inputday6.txt")
+inputs = read_inputs(""inputs/06.txt"")
 
 def parse_form(inputs):
     form = [set()]
@@ -17,5 +17,5 @@ yes_count=0
 form_input=parse_form(inputs)
 for length_form in form_input:
     yes_count+=len(length_form)
-    
+
 print(yes_count)

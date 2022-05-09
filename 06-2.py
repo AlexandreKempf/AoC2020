@@ -2,7 +2,7 @@ import string
 alphabet=string.ascii_lowercase[:26]
 
 from utils import read_inputs
-inputs = read_inputs("inputday6.txt")
+inputs = read_inputs(""inputs/06.txt"")
 
 
 def parse_form_intersection(inputs):
