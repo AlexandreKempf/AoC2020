@@ -1,51 +1,34 @@
 from utils import read_inputs
+from functools import lru_cache
 
-inputs = read_inputs("inputday7.txt")
+inputs = read_inputs("inputs/07.txt")
 
-rule={}
+
+def get_bag_name(content):
+    return " ".join(content.split(" ")[1:-1])
+
+
+database = {}
 for line in inputs:
-    current_bag=line[:-1].split(" bags contain ")[0]
-    containable_bag=line[:-1].split(" bags contain ")[1]
-    color_containable_bag=containable_bag.split(", ")
-    color_containable=[]
-    number_containable_bag=[]
-    if color_containable_bag != "no other bags":
-      for bags in color_containable_bag:
-          number_containable_bag.append(bags.split(" ")[0])
-          color_containable.append(" ".join(bags.split(" ")[1:-1]))
-    rule[current_bag]=[]
-    rule[current_bag].append(number_containable_bag)
-    rule[current_bag].append(color_containable)
-    
-
-
-
-
-color_possible=[]
-marked_color=["shiny gold"]
-
-while len(marked_color):
-    for key, value in rule.items():
-        if (key not in marked_color) and (key not in color_possible) and (marked_color[0] in value[1]):
-            marked_color.append(key)
-    color_possible.append(marked_color.pop(0))
-    
-
-number_of_bag=0
-number_of_bag_of_this_color=[1]
-marked_color=["shiny gold"]
-
-while len(marked_color):
-    if rule[marked_color[0]][0]!=['no']:
-        number_of_contained_bag=[int(number) for number in rule[marked_color[0]][0]]
-        total_number_of_contained_bag=sum(number_of_contained_bag)
-        number_of_bag+=number_of_bag_of_this_color[0]*total_number_of_contained_bag
-        marked_color.extend(rule[marked_color[0]][1])
-        number_of_bag_of_this_color.extend(number_of_contained_bag)
-        marked_color.pop(0)
-        number_of_bag_of_this_color.pop(0)
-        
+    container, content = line[:-1].split(" bags contain ")
+    if content == "no other bags":
+        database[container] = []
     else:
-        marked_color.pop(0)
-        number_of_bag_of_this_color.pop(0)
+        database[container] = [get_bag_name(c) for c in content.split(", ")]
 
+
+@lru_cache
+def get_containers(bag):
+    return {container for container, content in database.items() if bag in content}
+
+
+def recursive_containers(bag, accumulator=set()):
+    containers = get_containers(bag)
+    if not containers < accumulator:  # all containers has already been found
+        accumulator |= containers
+        for container_bag in containers:
+            accumulator |= recursive_containers(container_bag, accumulator)
+    return accumulator
+
+
+print(len(recursive_containers("shiny gold")))

@@ -1,7 +1,7 @@
-from functools import lru_cache
 from utils import read_inputs
-inputs = read_inputs("inputs/07.txt")
+from functools import lru_cache
 
+inputs = read_inputs("inputs/07.txt")
 
 
 def get_bag_number_and_name(content):
