@@ -1,7 +1,7 @@
-import string
-alphabet=string.ascii_lowercase[:26]
-
 from utils import read_inputs
+import string
+
+alphabet = string.ascii_lowercase[:26]
 inputs = read_inputs("inputs/06.txt")
 
 
@@ -16,8 +16,7 @@ def parse_form_intersection(inputs):
             form[identity_index] &= set(line)
     return form
 
-form_input=parse_form_intersection(inputs)
-yes_count=0
-yes_count=sum(len(answers) for answers in form_input) 
+
+yes_count = sum(len(answers) for answers in parse_form_intersection(inputs))
 
 print(yes_count)
